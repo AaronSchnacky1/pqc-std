@@ -1,4 +1,4 @@
-pqcstd 0.0.1
+pqc-std 0.0.1
 
 DEMO PQC Architecture DEMO NOT FOR PRODUCTION
 
