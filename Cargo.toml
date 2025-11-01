@@ -1,0 +1,26 @@
+[package]
+name = "pqc-std"
+version = "0.0.1"
+edition = "2021"
+description = "Post-quantum Kyber, Dilithium, AES-GCM — std"
+license = "MIT"
+keywords = ["kyber", "dilithium", "pqc", "std"]
+categories = ["pqc", "std"]
+repository = "https://github.com/AaronSchnacky1/pqc-std"
+readme = "README.md"
+authors = ["Aaron Schnacky <aaronschnacky@gmail.com>"]
+homepage = "https://www.aaronschnacky.com/"
+documentation = "https://github.com/AaronSchnacky1/pqc-std/blob/main/README.md"
+## Security See [SECURITY.md](./SECURITY.md) for threat model.
+
+[dependencies]
+pqcrypto-kyber      = "0.7"
+pqcrypto-dilithium  = "0.4"
+aes-gcm             = "0.10"
+rand                = { version = "0.8", features = ["std_rng"] }
+rand_core           = "0.6"
+getrandom           = { version = "0.2", features = ["std"] }
+thiserror           = "1.0"
+
+# the traits we need for `as_bytes` / `from_bytes`
+pqcrypto-traits     = "0.3"

@@ -1,0 +1,16 @@
+#[cfg(test)]
+mod tests {
+    use post_quantum_crypto::apps::chat::KyberChat;
+
+    #[test]
+    fn round_trip() {
+        let chat = KyberChat::new();
+        let (pk, sk) = chat.generate_keypair();
+
+        let msg = b"post-quantum hello";
+        let (ct_kem, ct_aes, nonce) = chat.encrypt_message(&pk, msg).unwrap();
+
+        let plain = chat.decrypt_message(&ct_kem, &ct_aes, &sk, &nonce).unwrap();
+        assert_eq!(plain, msg);
+    }
+}
